@@ -1,5 +1,7 @@
 import { View, Text } from "react-native";
 import React, { useState } from "react";
+import { serverTimestamp } from "firebase/firestore";
+
 import tw from "twrnc";
 import Toast from "react-native-toast-message";
 import { TextInput, List, Button } from "react-native-paper";
@@ -44,6 +46,7 @@ const SignUp = ({ navigation }) => {
         uid: user.uid,
         email,
         role,
+        createdAt: serverTimestamp(),
       });
       console.log("user", user);
       console.log("response", response);
